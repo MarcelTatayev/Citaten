@@ -94,7 +94,14 @@ nav li.hier a {
   margin: 0px auto;
   padding: 0.5em;
 }
+
+P.ijskost {
+  font-style: italic;
+  text-align: right;
+}
+
 .citaten article {
+  position: relative; /* nodig om absolute positie binnen article te laten werken */
   background-color: #f5f5f5;
   padding: 1em;
   box-shadow: 0 0 3px #999;
@@ -102,31 +109,31 @@ nav li.hier a {
   margin-bottom: 1em;
 }
 
-P.ijskost {
-  font-style: italic;
-  text-align: right;
-}
-
 article .delete {
-  position: relative;
+  position: absolute;
   left: 90%;
-
   width: 28px;
 }
 
 article .delete:hover {
+  cursor: pointer;
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* article .delete:hover {
   cursor: pointer;
   width: 32px;
   height: 32px;
   top: 3px;
   right: 3px;
   transition-duration: 3OOms;
-}
+} */
+
 form.add {
   display: flex;
   flex-direction: column;
   gap: 1rem; /* ruimte tussen elementen */
-  max-width: 800px; /* optioneel voor mooiere layout */
+  max-width: 800px;
 }
 
 form.add label {
