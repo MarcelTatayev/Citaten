@@ -41,6 +41,7 @@ function toonAlleCitaten() {
         document.getElementById('geencitaten').style.display = 'none';
         alleCitaten.forEach(cit => voegCitaatToe(cit));
     }
+    updateStatistieken();
 }
 
 toonAlleCitaten();
@@ -136,6 +137,29 @@ function startBewerken(cit, artikel) {
         citatenSectie.dispatchEvent(update);
     });
 }
+
+function updateStatistieken() {
+    const prijzen = alleCitaten.map(c => parseFloat(c.prijs));
+    if (prijzen.length === 0) {
+      document.getElementById('totaal').textContent = 'Geen ijsjes';
+      document.getElementById('gemiddelde').textContent = '';
+      document.getElementById('duurste').textContent = '';
+      document.getElementById('goedkoopste').textContent = '';
+      return;
+    }
+  
+    const totaal = prijzen.length;
+    const som = prijzen.reduce((acc, val) => acc + val, 0);
+    const gemiddelde = (som / totaal).toFixed(2);
+    const duurste = Math.max(...prijzen);
+    const goedkoopste = Math.min(...prijzen);
+  
+    document.getElementById('totaal').textContent = `Aantal ijsjes: ${totaal}`;
+    document.getElementById('gemiddelde').textContent = `Gemiddelde prijs: €${gemiddelde}`;
+    document.getElementById('duurste').textContent = `Duurste ijsje: €${duurste}`;
+    document.getElementById('goedkoopste').textContent = `Goedkoopste ijsje: €${goedkoopste}`;
+  }
+  
 
 /* Kleur Titel */
 const h1Titel = document.querySelector('h1');

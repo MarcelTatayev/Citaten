@@ -120,15 +120,6 @@ article .delete:hover {
   transform: scale(1.2) rotate(10deg);
 }
 
-/* article .delete:hover {
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  top: 3px;
-  right: 3px;
-  transition-duration: 3OOms;
-} */
-
 form.add {
   display: flex;
   flex-direction: column;

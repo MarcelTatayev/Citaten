@@ -30,6 +30,30 @@ document.querySelector('form.add').addEventListener('submit', (event) => {
     document.querySelector('form.add').reset();
     window.location.href = 'index.html';
   }
+
+  function updateStatistieken() {
+    const prijzen = alleCitaten.map(cit => parseFloat(cit.prijs));
+  
+    if (prijzen.length === 0) {
+      document.getElementById('totaal').textContent = 'Aantal ijsjes: 0';
+      document.getElementById('gemiddelde').textContent = 'Gemiddelde prijs: €0';
+      document.getElementById('duurste').textContent = 'Duurste ijsje: €0';
+      document.getElementById('goedkoopste').textContent = 'Goedkoopste ijsje: €0';
+      return;
+    }
+  
+    const totaal = prijzen.length;
+    const som = prijzen.reduce((acc, curr) => acc + curr, 0);
+    const gemiddelde = (som / totaal).toFixed(2);
+    const duurste = Math.max(...prijzen);
+    const goedkoopste = Math.min(...prijzen);
+  
+    document.getElementById('totaal').textContent = `Aantal ijsjes: ${totaal}`;
+    document.getElementById('gemiddelde').textContent = `Gemiddelde prijs: €${gemiddelde}`;
+    document.getElementById('duurste').textContent = `Duurste ijsje: €${duurste}`;
+    document.getElementById('goedkoopste').textContent = `Goedkoopste ijsje: €${goedkoopste}`;
+  }
+  
   
 
  
