@@ -143,3 +143,32 @@ input#prijs {
   width: 80px;
   text-align: center; /* Optioneel, voor nettere weergave van cijfers */
 }
+
+.stats {
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 30px auto; /* auto marge voor horizontaal centreren */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  width: 300px; /* vaste breedte, kun je aanpassen naar wens */
+  text-align: center; /* tekst in de div centreren */
+}
+
+.stats h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.stats p {
+  font-family: "PT Serif", serif;
+  font-size: 18px;
+  margin: 8px 0;
+  color: #555;
+}
+
+.stats p::before {
+  content: "🍦 ";
+}
